@@ -18,15 +18,18 @@ body {
 .num {
 
 }
-.operator {
-  
-}
-text-to-input {
-
+.operators {
 
 }
+#sum {
 
-password-input {
+}
+#text-to-input {
+
+
+}
+
+#password-input {
 
 
 }
@@ -34,6 +37,6 @@ password-input {
 .username {
 
 }
-search-term {
+#search-term {
 
 }

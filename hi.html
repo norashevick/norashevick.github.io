@@ -19,7 +19,7 @@
     <form>
       username: <input id="username" class="text-to-input" type="text" name="usrn"/><br>
       password: <input id="password-input" class="text-to-input" type="password" name="pwd"/><br>
-      <input class = "buttons" type="submit" value="Log In">
+      <input class = "buttons" type="submit" value="Log In" onclick="heap.addUserProperties({'username':'document.querySelectorAll('#username')[0].value'});"/>
     </form>
   </div>
 
@@ -36,7 +36,7 @@
     <form>
       1st number: <input class="num" type="text"/> <br>
       2nd number: <input class="num" type="text"/> <br>
-      <button class="operators" id="sum" type="button" onclick=console.log('Hello world!')>Add</button>
+      <button class="operators" id="sum" type="button" onclick=console.log('Hello world!')>Find the sum in heap</button>
   </div>
   <!-- Scripts -->
   <script src="index.js"></script>

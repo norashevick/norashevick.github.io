@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <!--  Meta  -->
+  <meta charset="UTF-8" />
+  <title>Testing</title>
+  
+  <!--  Styles  -->
+  <link rel="stylesheet" href="styles/index.processed.css">
+<script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+      heap.load("806398103");
+</script>
+</head>
+<body>
+  <div>
+    <p> This is a test site </p>
+    <form>
+      username: <input id="username" class="text-to-input" type="text" name="usrn"/><br>
+      password: <input id="password-input" class="text-to-input" type="password" name="pwd"/><br>
+      <input class = "buttons" type="submit" value="Log In">
+    </form>
+  </div>
+  
+  <div>
+    <p>Search in Heap's docs!</p>
+    <form action="https://docs.heap.io/search?q=" method="GET">
+      Search: <input id="search-term" type="text" name="q"/>
+      <input class= "buttons" type="submit" value="Search"/>
+    </form>
+  </div>
+  <!-- Scripts -->
+  <script src="scripts/index.js"></script>
+</body>
+</html>

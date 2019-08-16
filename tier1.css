@@ -4,7 +4,6 @@ body {
 
 .center {
   text-align: center;
-  color: green
 }
 
 .tier1 {
@@ -12,7 +11,8 @@ body {
 }
 
 .comic {
-
+  font-size: 30px
+  font-family: "Comic Sans MS", "Times New Roman", Times
 }
 
 #hike {

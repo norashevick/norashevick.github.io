@@ -11,8 +11,8 @@ body {
 }
 
 .comic {
-  background-color: coral;
-  font: 60px "Comic Sans MS", sans-serif;
+  font-size: 30px;
+  font-family: "Comic Sans MS", sans-serif;
 }
 
 #hike {

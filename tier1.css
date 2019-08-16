@@ -6,8 +6,8 @@ body {
   text-align: center;
 }
 
-p {
-  font-size: 30px;
+span.comical {
+  background-color:green;
   font-family: "Comic Sans MS", sans-serif;
   color: green;
 }

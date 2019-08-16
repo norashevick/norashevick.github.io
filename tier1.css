@@ -13,7 +13,7 @@ body {
 .comic {
   background-color: coral;
   font-size: 30px;
-  font-family: "Comic Sans MS", "Times New Roman", Times;
+  font: 30px "Comic Sans MS", sans-serif;
 }
 
 #hike {

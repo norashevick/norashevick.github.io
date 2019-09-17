@@ -3,8 +3,12 @@
  * - Add any styles you want here!
  */
 
+html{
+  overflow-y: scroll;
+}
 body {
   background: #f5f5f5;
+  overflow-y: scroll;
 }
 
 .center {

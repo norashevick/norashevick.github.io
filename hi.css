@@ -1,0 +1,57 @@
+/**
+ * index.scss
+ * - Add any styles you want here!
+ */
+
+html{
+  overflow-y: scroll;
+}
+body {
+  background: #f5f5f5;
+  overflow-y: scroll;
+}
+
+.center {
+  text-align: center;
+  color: red
+}
+
+.buttons {
+
+}
+.num {
+
+}
+.operators {
+
+}
+
+.testing {
+
+}
+.tier1 {
+
+}
+#sum {
+
+}
+#login {
+
+
+}
+#text-to-input {
+
+
+}
+
+#password-input {
+
+
+}
+
+.username {
+
+}
+#search-term {
+
+}

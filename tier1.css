@@ -1,0 +1,12 @@
+body {
+  background: #f5f5f5;
+}
+
+div.center {
+  text-align: center;
+}
+
+span.comical {
+  font-family: "Comic Sans MS", sans-serif;
+  color: green;
+}

@@ -7,31 +7,91 @@
   <title>Testing</title>
 
   <!--  Styles  -->
-  <link rel="stylesheet" href="styles/index.processed.css">
-<!--  <script type="text/javascript">
-    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+  <link rel="stylesheet" href="hi.css">
+  <script>
+      window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src="https://cdn.heapanalytics.com/js/heap-"+e+".js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(r,a);for(var n=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],o=0;o<p.length;o++)heap[p[o]]=n(p[o])};
+      heap.load("806398103");
+      window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src="https://cdn.heapanalytics.com/js/heap-"+e+".js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(r,a);for(var n=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],o=0;o<p.length;o++)heap[p[o]]=n(p[o])};
       heap.load("806398103");
   </script>
--->
 </head>
 <body>
-  <div>
-    <p> This is a test site </p>
-    <form>
+  <div class="center">
+    <h3 class="center">This is a test site</h3>
       username: <input id="username" class="text-to-input" type="text" name="usrn"/><br>
       password: <input id="password-input" class="text-to-input" type="password" name="pwd"/><br>
-      <input class = "buttons" type="submit" value="Log In">
-    </form>
+      <input class="buttons" id="login" type="submit" value="Log In"/>
   </div>
+
+  <div class="center" id="test">
+    <h3 class="center">This is a test site</h3>
+      username: <input id="username" class="text-to-input" type="text" name="usrn"/><br>
+      password: <input id="password-input" class="text-to-input" type="password" name="pwd"/><br>
+      <input class="buttons" id="login" type="submit" value="Log In"/>
+  </div>
+
+  <button>
+    <a href="https://r-heap.github.io/Heappy_Test/About.html?nsite">GO TO ROHIN'S PAGE</a>
+  </button>
 
   <div>
     <p>Search in Heap's docs!</p>
+
     <form action="https://docs.heap.io/search?q=" method="GET">
       Search: <input id="search-term" type="text" name="q"/>
-      <input class= "buttons" type="submit" value="Search"/>
+      <input class="buttons" type="submit" value="Search"/>
     </form>
   </div>
+
+<div>
+  <button onclick="location.href = 'https://norashevick.github.io/next.html';" id="navigate">View next page </button>
+</div>
+
+  <div>
+    <ul data-test="hello">
+        <li>Neil Armstrong</li>
+        <li data-test="first">Alan Bean</li>
+        <li data-test="first">Peter Conrad</li>
+        <li>Edgar Mitchell</li>
+        <li>Alan Shepard</li>
+      </ul>
+  </div>
+
+  <div class="center something here">
+    <h3 [data-test="TRUE"]>OPERATIONS</h3>
+    <form class=test-out-form action="https://norashevick.github.io/">
+      1st number: <input class="num" type="text" name="num1"/> <br>
+      2nd number: <input class="num" type="text" name="num2"/> <br>
+      <button class="operators" id="sum" type="submit">Find the sum in heap</button>
+    </form>
+  </div>
+  <br>
+  <br>
+  <a href="#" id="yello"
+             onClick="MyWindow=window.open('https://kevintrankt.com/clubpenguin/?popup=true','MyWindow','width=600,height=300'); return false;">Click to see sumthin</a>
+
   <!-- Scripts -->
-  <script src="scripts/index.js"></script>
+  <script src="index.js"></script>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p> hi </p>
 </body>
 </html>

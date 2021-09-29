@@ -3,6 +3,10 @@
  * - Add any styles you want here!
  */
 
+ @keyframes onAutoFillStart {  from {/**/}  to {/**/}}
+ @keyframes onAutoFillCancel {  from {/**/}  to {/**/}}
+
+
 html{
   overflow-y: scroll;
 }

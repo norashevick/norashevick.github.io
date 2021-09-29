@@ -15,7 +15,7 @@
              return onAutoFillCancel(target)
      }
  }
- document.querySelector('input#username2').addEventListener('animationstart', onAnimationStart, console.log("IT WORKED"));
- document.querySelector('input#email2').addEventListener('animationstart', onAnimationStart, console.log("IT WORKED"));
+ document.querySelector('input#username2').addEventListener('animationstart', onAnimationStart, false);
+ document.querySelector('input#email2').addEventListener('animationstart', onAnimationStart, false);
 
  console.log("hi.js javacript did the thing");

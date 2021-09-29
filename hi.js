@@ -16,3 +16,4 @@
      }
  }
  document.querySelector('input').addEventListener('animationstart', onAnimationStart, console.log("IT WORKED"));
+ console.log("hi.js javacript did the thing");

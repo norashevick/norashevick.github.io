@@ -15,7 +15,7 @@
     // Add "load" event listener to the iframe
     iframe.addEventListener('load', function () {
       // Get the iframe's contentDocument
-      const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+      const iframeDocument = iframe.querySelector("#login");
 
       // Add event listeners for mousedown, mouseup, and click events to the iframe's contentDocument
       iframeDocument.addEventListener('mousedown', handleClick);
@@ -26,8 +26,7 @@
 
   // Function to handle click events inside the iframe
   function handleClick(event) {
-    console.log(event.target);
-    alert('Click detected inside iframe.');
+    alert('Click detected inside iframe on login.');
     // Your track call or other actions can go here...
   }
 

@@ -23,7 +23,7 @@
         	alert("I'm doing interesting stuff here !");
         	var args = Array.from(arguments);
         	args.forEach(function(arg) {
-                if (typeof arg === 'object' && arg.email) {
+                if (typeof arg === 'string' && arg.includes('HEAP')) {
                     // Store the logged data in the global variable
                     heap.track("WOO");
                 }

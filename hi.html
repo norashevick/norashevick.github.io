@@ -20,16 +20,12 @@
     	var originallog = console.log;
     	console.log = (function(txt) {
         	// Do really interesting stuff
-        	alert("I'm doing interesting stuff here !");
-        	var args = Array.from(arguments);
-        	args.forEach(function(arg) {
-                if (typeof arg === 'string' && arg.includes('HEAP')) {
-                    // Store the logged data in the global variable
+        	alert("I'm doing interesting stuff here!");
+        	originallog(arguments);
+                if (typeof arguments === 'string') {
                     heap.track("WOO");
                 }
-		originallog.apply(console, [arg]);
-        	})
-    	});
+        	});
 	})(); 
 </script>
 

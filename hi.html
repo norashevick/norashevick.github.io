@@ -21,7 +21,7 @@
     	console.log = (function(txt) {
         	// Do really interesting stuff
         	alert("I'm doing interesting stuff here!");
-        	originallog(arguments);
+        	originallog.apply(console, arguments);
                 if (typeof arguments === 'string') {
                     heap.track("WOO");
                 }

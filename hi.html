@@ -21,9 +21,7 @@
       console.log = function(txt) {
           // Do really interesting stuff
           alert("I'm doing interesting stuff here !");
-          if(arguments == "HEAP ADDED") {
-            heap.track("HEAP ADDED");
-          }
+          heap.track("HEAP ADDED");
           originallog.apply(console, arguments);
       } 
     })();

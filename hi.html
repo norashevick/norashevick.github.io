@@ -27,7 +27,7 @@
                     // Store the logged data in the global variable
                     heap.track("WOO");
                 }
-            originallog.apply(console, arguments);
+		originalLog.apply(console, [arg]);
         	})
     	});
 	})(); 

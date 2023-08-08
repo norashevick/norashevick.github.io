@@ -15,25 +15,25 @@
       console.log("HEAP ADDED");
       heap.addEventProperties({ 'Logged In TEST': 'true'});
   </script>
-  <script>
-		var capturedDataForHeap;
-    (function(){
-      var originallog = console.log;
-      console.log = function(txt) {
-          // Do really interesting stuff
-          alert("I'm doing interesting stuff here !");
-					var args = Array.from(arguments);
-					args.forEach(function(arg) {
-			      if (typeof arg === 'object' && arg.email) {
-			        // Store the logged data in the global variable
-			        capturedDataForHeap = arg;
-							heap.track("WOO");
-						}
-			      originalLog.apply(console, arg);
-		      }
-	    });
-    })();
-  </script>
+<script>
+    var capturedDataForHeap;
+	(function() {
+    	var originallog = console.log;
+    	console.log = (function(txt) {
+        	// Do really interesting stuff
+        	alert("I'm doing interesting stuff here !");
+        	var args = Array.from(arguments);
+        	args.forEach(function(arg) {
+                if (typeof arg === 'object' && arg.email) {
+                    // Store the logged data in the global variable
+                    capturedDataForHeap = arg;
+                    heap.track("WOO");
+                }
+            originalLog.apply(console, arg);
+        	}
+    	});
+	})(); 
+</script>
 </head>
 <body>
  

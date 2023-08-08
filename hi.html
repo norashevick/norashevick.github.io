@@ -22,7 +22,7 @@
         	// Do really interesting stuff
         	alert("I'm doing interesting stuff here!");
         	originallog.apply(console, arguments);
-                if (typeof arguments === 'string') {
+                if (typeof arguments[0] === 'string') {
                     heap.track("WOO");
                 }
         	});

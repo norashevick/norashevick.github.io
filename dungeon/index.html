@@ -1,18 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to My Dungeon</title>
-    <script>
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Rr Mr fi Cr Ar ci Tr Fr capture Mi calculateEventProperties Lr register register_once register_for_session unregister unregister_for_session Hr getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Ur jr createPersonProfile zr kr Br opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Dr debug M Nr getPageViewId captureTraceFeedback captureTraceMetric $r".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_igN2xsGA6zMH4PQPWkH5Pl2S9mmAIbDrNl0JyhgzzYr', {
-        api_host: 'https://us.i.posthog.com',
-        defaults: '2025-11-30',
-        person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
-    })
-    </script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Uncial+Antiqua&display=swap" rel="stylesheet">
     <style>
         * {
@@ -23,7 +14,7 @@
 
         body {
             font-family: 'Cinzel', serif;
-            background: #0a0a0f;
+            background: #1a1a28;
             color: #d4a574;
             min-height: 100vh;
             overflow-x: hidden;
@@ -52,10 +43,10 @@
             width: 100%;
             height: 100%;
             background: 
-                linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.7) 50%, transparent 100%),
-                repeating-linear-gradient(0deg, #1a1a24 0px, #12121a 3px, #1a1a24 6px),
-                repeating-linear-gradient(90deg, #1a1a24 0px, #0f0f16 3px, #1a1a24 6px);
-            opacity: 0.3;
+                linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%),
+                repeating-linear-gradient(0deg, #2a2a38 0px, #22223a 3px, #2a2a38 6px),
+                repeating-linear-gradient(90deg, #2a2a38 0px, #1f1f2e 3px, #2a2a38 6px);
+            opacity: 0.4;
             pointer-events: none;
             z-index: 1;
         }
@@ -256,6 +247,142 @@
             font-size: 16px;
         }
 
+        /* Form styling */
+        .dungeon-form {
+            background: linear-gradient(135deg, rgba(42, 42, 53, 0.6), rgba(26, 26, 36, 0.8));
+            border: 3px solid #3a3a45;
+            padding: 40px;
+            margin: 40px 0;
+            position: relative;
+            box-shadow: 
+                0 5px 20px rgba(0, 0, 0, 0.8),
+                inset 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .dungeon-form::before {
+            content: '📜';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            background: #1a1a24;
+            padding: 5px 15px;
+            border-radius: 50%;
+            border: 3px solid #3a3a45;
+        }
+
+        .form-group {
+            margin: 30px 0;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 20px;
+            color: #ff8c00;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            font-family: 'Cinzel', serif;
+            background: rgba(26, 26, 36, 0.8);
+            border: 2px solid #3a3a45;
+            color: #d4a574;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #ff8c00;
+            box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
+        }
+
+        .radio-group {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .radio-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .radio-option input[type="radio"] {
+            appearance: none;
+            width: 30px;
+            height: 30px;
+            border: 3px solid #3a3a45;
+            border-radius: 50%;
+            background: rgba(26, 26, 36, 0.8);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .radio-option input[type="radio"]:checked {
+            border-color: #ff8c00;
+            background: #ff8c00;
+            box-shadow: 0 0 15px rgba(255, 140, 0, 0.6);
+        }
+
+        .radio-option input[type="radio"]:checked::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: #1a1a24;
+            border-radius: 50%;
+        }
+
+        .radio-label {
+            margin-top: 8px;
+            font-size: 16px;
+            color: #c4a574;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 18px;
+            font-size: 20px;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff8c00, #ff6600);
+            border: 3px solid #3a3a45;
+            color: #1a1a24;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .submit-button:hover {
+            background: linear-gradient(135deg, #ffaa00, #ff8800);
+            transform: translateY(-2px);
+            box-shadow: 
+                0 7px 20px rgba(0, 0, 0, 0.6),
+                0 0 20px rgba(255, 140, 0, 0.5);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+        }
+
         @media (max-width: 768px) {
             .main-title {
                 font-size: 48px;
@@ -331,45 +458,49 @@
         </div>
 
         <!-- Form Section -->
-<div class="stone-arch">
-    <div class="dungeon-form">
-        <h2 class="section-title">Sign the Guest Ledger</h2>
-        
-        <div class="form-group">
-            <label class="form-label" for="visitor-name">Your Name</label>
-            <input 
-                type="text" 
-                id="visitor-name" 
-                class="form-input" 
-                placeholder="Enter thy name..."
-            >
-        </div>
+        <div class="stone-arch">
+            <div class="dungeon-form">
+                <h2 class="section-title">Sign the Guest Ledger</h2>
+                
+                <div class="form-group">
+                    <label class="form-label" for="visitor-name">Your Name</label>
+                    <input 
+                        type="text" 
+                        id="visitor-name" 
+                        class="form-input" 
+                        placeholder="Enter thy name..."
+                    >
+                </div>
 
-        <div class="form-group">
-            <label class="form-label">How Much Do You Like Medieval Times? (1 is not at all, 5 is the most)</label>
-            <div class="radio-group">
-                <label class="radio-option">
-                    <input type="radio" name="medieval-rating" value="1">
-                    <span class="radio-label">1</span>
-                </label>
-                <label class="radio-option">
-                    <input type="radio" name="medieval-rating" value="2">
-                    <span class="radio-label">2</span>
-                </label>
-                <label class="radio-option">
-                    <input type="radio" name="medieval-rating" value="3">
-                    <span class="radio-label">3</span>
-                </label>
-                <label class="radio-option">
-                    <input type="radio" name="medieval-rating" value="4">
-                    <span class="radio-label">4</span>
-                </label>
-                <label class="radio-option">
-                    <input type="radio" name="medieval-rating" value="5">
-                    <span class="radio-label">5</span>
-                </label>
+                <div class="form-group">
+                    <label class="form-label">How Much Do You Like Medieval Times?</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="medieval-rating" value="1">
+                            <span class="radio-label">1</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="medieval-rating" value="2">
+                            <span class="radio-label">2</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="medieval-rating" value="3">
+                            <span class="radio-label">3</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="medieval-rating" value="4">
+                            <span class="radio-label">4</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="medieval-rating" value="5">
+                            <span class="radio-label">5</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button">Submit Entry</button>
             </div>
-        </div
+        </div>
 
         <div class="dungeon-footer">
             <p>🏰 Constructed in the Year MMXXIV 🏰</p>

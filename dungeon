@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Dungeon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cinzel', serif;
+            background: #0a0a0f;
+            color: #d4a574;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated torch flames */
+        @keyframes flicker {
+            0%, 100% { opacity: 1; transform: scale(1) translateY(0); }
+            25% { opacity: 0.8; transform: scale(1.05) translateY(-2px); }
+            50% { opacity: 0.9; transform: scale(0.95) translateY(1px); }
+            75% { opacity: 0.85; transform: scale(1.02) translateY(-1px); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 140, 0, 0.6), 0 0 40px rgba(255, 100, 0, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(255, 140, 0, 0.8), 0 0 60px rgba(255, 100, 0, 0.6); }
+        }
+
+        /* Stone wall texture background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.7) 50%, transparent 100%),
+                repeating-linear-gradient(0deg, #1a1a24 0px, #12121a 3px, #1a1a24 6px),
+                repeating-linear-gradient(90deg, #1a1a24 0px, #0f0f16 3px, #1a1a24 6px);
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Vignette effect */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Torches on sides */
+        .torch-container {
+            position: fixed;
+            top: 0;
+            height: 100%;
+            width: 100px;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .torch-container.left { left: 20px; }
+        .torch-container.right { right: 20px; }
+
+        .torch {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            top: 100px;
+        }
+
+        .torch-flame {
+            font-size: 50px;
+            animation: flicker 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.8));
+        }
+
+        /* Main title */
+        .dungeon-entrance {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .main-title {
+            font-family: 'Uncial Antiqua', cursive;
+            font-size: 72px;
+            color: #ff8c00;
+            text-shadow: 
+                0 0 10px rgba(255, 140, 0, 0.8),
+                0 0 20px rgba(255, 100, 0, 0.6),
+                0 0 30px rgba(255, 60, 0, 0.4),
+                2px 2px 0 #1a1a24;
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #8b6f47;
+            font-style: italic;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* Stone archway frame */
+        .stone-arch {
+            background: linear-gradient(to bottom, #2a2a35, #1a1a24);
+            border: 8px solid #3a3a45;
+            border-radius: 50% 50% 0 0 / 20% 20% 0 0;
+            padding: 60px 50px 40px;
+            position: relative;
+            box-shadow: 
+                inset 0 0 50px rgba(0, 0, 0, 0.8),
+                0 10px 40px rgba(0, 0, 0, 0.9);
+            margin: 40px 0;
+        }
+
+        .stone-arch::before,
+        .stone-arch::after {
+            content: '🔥';
+            position: absolute;
+            top: 30px;
+            font-size: 40px;
+            animation: flicker 1.8s ease-in-out infinite;
+        }
+
+        .stone-arch::before { left: 30px; }
+        .stone-arch::after { right: 30px; }
+
+        /* Content sections */
+        .dungeon-section {
+            background: linear-gradient(135deg, rgba(42, 42, 53, 0.6), rgba(26, 26, 36, 0.8));
+            border: 3px solid #3a3a45;
+            padding: 40px;
+            margin: 40px 0;
+            position: relative;
+            box-shadow: 
+                0 5px 20px rgba(0, 0, 0, 0.8),
+                inset 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .dungeon-section::before {
+            content: '⚔️';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            background: #1a1a24;
+            padding: 5px 15px;
+            border-radius: 50%;
+            border: 3px solid #3a3a45;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: #ff8c00;
+            margin-bottom: 25px;
+            margin-top: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(255, 140, 0, 0.6);
+        }
+
+        .content-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #c4a574;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        /* Dungeon list items */
+        .dungeon-list {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+
+        .dungeon-list li {
+            background: rgba(58, 58, 69, 0.4);
+            border-left: 4px solid #ff8c00;
+            padding: 20px 30px;
+            margin: 15px 0;
+            font-size: 18px;
+            color: #d4a574;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .dungeon-list li::before {
+            content: '🗡️';
+            position: absolute;
+            left: -20px;
+            font-size: 24px;
+        }
+
+        .dungeon-list li:hover {
+            background: rgba(58, 58, 69, 0.7);
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+        }
+
+        /* Iron gate decoration */
+        .iron-gate {
+            text-align: center;
+            font-size: 100px;
+            margin: 60px 0;
+            opacity: 0.4;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.9));
+        }
+
+        /* Footer */
+        .dungeon-footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 40px;
+            border-top: 3px double #3a3a45;
+            color: #8b6f47;
+            font-style: italic;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 48px;
+            }
+
+            .torch-container {
+                display: none;
+            }
+
+            .stone-arch {
+                padding: 40px 30px 30px;
+            }
+
+            .dungeon-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Torches -->
+    <div class="torch-container left">
+        <div class="torch">
+            <div class="torch-flame">🔥</div>
+        </div>
+    </div>
+    <div class="torch-container right">
+        <div class="torch">
+            <div class="torch-flame">🔥</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Main entrance -->
+        <div class="dungeon-entrance">
+            <h1 class="main-title">Welcome to My Dungeon</h1>
+            <p class="subtitle">Enter if You Dare</p>
+        </div>
+
+        <div class="stone-arch">
+            <div class="dungeon-section">
+                <h2 class="section-title">About This Realm</h2>
+                <p class="content-text">
+                    You have ventured deep into the stone corridors of my digital fortress. 
+                    Here, amidst flickering torchlight and ancient shadows, lies a collection 
+                    of my work, thoughts, and creative endeavors. Tread carefully, for each 
+                    passage leads to new discoveries.
+                </p>
+            </div>
+
+            <div class="iron-gate">⛓️</div>
+
+            <div class="dungeon-section">
+                <h2 class="section-title">Chambers & Corridors</h2>
+                <ul class="dungeon-list">
+                    <li>The Arsenal of Projects - Battle-tested works and creations</li>
+                    <li>The Library of Knowledge - Skills forged in the fires of experience</li>
+                    <li>The Treasury of Ideas - Thoughts and musings from the depths</li>
+                    <li>The Gatehouse - Where messages may be sent</li>
+                </ul>
+            </div>
+
+            <div class="iron-gate">🗝️</div>
+
+            <div class="dungeon-section">
+                <h2 class="section-title">The Quest Continues</h2>
+                <p class="content-text">
+                    This dungeon is ever-expanding, with new chambers being carved from the 
+                    bedrock of creativity. Return often to discover what lies beyond the next 
+                    locked door. The torches burn eternal, and the journey never truly ends.
+                </p>
+            </div>
+        </div>
+
+        <div class="dungeon-footer">
+            <p>🏰 Constructed in the Year MMXXIV 🏰</p>
+            <p style="margin-top: 15px;">May your path be lit and your code compile true</p>
+        </div>
+    </div>
+</body>
+</html>

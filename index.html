@@ -1,76 +1,428 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script type="text/javascript">
-    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
-      heap.load("472986767");
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ye Olde Portfolio of Nora Shevick</title>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=IM+Fell+English:ital@0;1&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 24 32"><text y="20" font-size="20">🪕</text></svg>'), auto;
+        }
 
-  <script>
-    // Function to handle iframe load event
-    function handleIframeLoad() {
-    // Get the iframe element
-    const iframe = document.querySelector('iframe');
+        body {
+            font-family: 'IM Fell English', serif;
+            background: #1a1410;
+            color: #2d2416;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
 
-    // Add "load" event listener to the iframe
-    iframe.addEventListener('load', function () {
-      // Get the iframe's contentDocument
-      const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
 
-      // Add event listeners for mousedown, mouseup, and click events to the iframe's contentDocument
-      iframeDocument.addEventListener('mousedown', handleClick);
-      iframeDocument.addEventListener('mouseup', handleClick);
-      iframeDocument.addEventListener('click', handleClick);
-    });
-  }
+        /* Authentic parchment page */
+        .parchment {
+            background: 
+                linear-gradient(90deg, transparent 0%, rgba(101, 67, 33, 0.05) 50%, transparent 100%),
+                radial-gradient(ellipse at 20% 30%, rgba(139, 90, 43, 0.15), transparent 40%),
+                radial-gradient(ellipse at 80% 70%, rgba(101, 67, 33, 0.1), transparent 40%),
+                radial-gradient(ellipse at 40% 80%, rgba(115, 85, 45, 0.08), transparent 35%),
+                #e8dcc0;
+            box-shadow: 
+                0 0 60px rgba(0,0,0,0.5),
+                inset 0 0 100px rgba(139, 90, 43, 0.1),
+                inset 20px 0 40px rgba(101, 67, 33, 0.1),
+                inset -20px 0 40px rgba(101, 67, 33, 0.1);
+            padding: 80px 60px;
+            position: relative;
+            border: 1px solid #c4a570;
+        }
 
-  // Function to handle click events inside the iframe
-  function handleClick(event) {
-    console.log(event.composedPath())
-    alert('Click detected inside iframe on login.');
-    // Your track call or other actions can go here...
-  }
+        /* Paper texture */
+        .parchment::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(139, 90, 43, 0.03) 2px,
+                    rgba(139, 90, 43, 0.03) 4px
+                );
+            pointer-events: none;
+        }
 
-  // Add "DOMContentLoaded" event listener to the document
-  document.addEventListener('DOMContentLoaded', handleIframeLoad);
-</script>
+        /* Aged/burned edges effect */
+        .parchment::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(to right, 
+                rgba(101, 67, 33, 0.3) 0%,
+                transparent 5%,
+                transparent 95%,
+                rgba(101, 67, 33, 0.3) 100%
+            );
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Ornate border frame */
+        .border-frame {
+            border: 3px solid #8b5a2b;
+            padding: 40px;
+            position: relative;
+            background: linear-gradient(to bottom, 
+                rgba(232, 220, 192, 0.3),
+                rgba(196, 165, 112, 0.2)
+            );
+        }
+
+        .border-frame::before,
+        .border-frame::after,
+        .corner-tl,
+        .corner-tr,
+        .corner-bl,
+        .corner-br {
+            position: absolute;
+            font-size: 24px;
+            color: #8b5a2b;
+        }
+
+        .corner-tl { top: -12px; left: -12px; }
+        .corner-tr { top: -12px; right: -12px; }
+        .corner-bl { bottom: -12px; left: -12px; }
+        .corner-br { bottom: -12px; right: -12px; }
+
+        /* Illuminated drop cap */
+        .drop-cap {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 140px;
+            float: left;
+            line-height: 100px;
+            margin: -10px 20px 0 -5px;
+            color: #8b2500;
+            position: relative;
+            text-shadow: 
+                2px 2px 0 #d4af37,
+                3px 3px 8px rgba(0,0,0,0.3);
+        }
+
+        .drop-cap::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid #d4af37;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* Header styling */
+        .manuscript-title {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 64px;
+            text-align: center;
+            color: #3d2817;
+            margin-bottom: 15px;
+            letter-spacing: 4px;
+            text-shadow: 1px 1px 0 #d4af37;
+            position: relative;
+        }
+
+        .manuscript-title::before,
+        .manuscript-title::after {
+            content: '✦';
+            color: #8b5a2b;
+            margin: 0 20px;
+            font-size: 32px;
+        }
+
+        .subtitle {
+            font-family: 'IM Fell English', serif;
+            font-size: 18px;
+            text-align: center;
+            font-style: italic;
+            color: #5a4332;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        /* Section headers with decorative elements */
+        .section {
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .section-header {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 28px;
+            color: #3d2817;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .section-header::before,
+        .section-header::after {
+            content: '';
+            position: absolute;
+            height: 2px;
+            width: 100px;
+            background: linear-gradient(to right, transparent, #8b5a2b, transparent);
+            top: 50%;
+        }
+
+        .section-header::before { left: 0; }
+        .section-header::after { right: 0; }
+
+        .section-header .ornament {
+            display: inline-block;
+            color: #8b5a2b;
+            margin: 0 15px;
+            font-size: 20px;
+        }
+
+        /* Body text blocks */
+        .text-block {
+            font-size: 17px;
+            color: #2d2416;
+            text-align: justify;
+            margin: 25px 0;
+            text-indent: 30px;
+        }
+
+        .text-block:first-of-type {
+            text-indent: 0;
+        }
+
+        /* Margin notes */
+        .margin-note {
+            position: absolute;
+            right: -180px;
+            width: 150px;
+            font-size: 13px;
+            font-style: italic;
+            color: #8b5a2b;
+            text-align: right;
+            line-height: 1.5;
+            opacity: 0.8;
+        }
+
+        /* List styling */
+        .manuscript-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .manuscript-list li {
+            padding: 15px 20px 15px 50px;
+            margin: 12px 0;
+            background: rgba(196, 165, 112, 0.15);
+            border-left: 3px solid #8b5a2b;
+            position: relative;
+            font-size: 16px;
+            color: #2d2416;
+        }
+
+        .manuscript-list li::before {
+            content: '§';
+            position: absolute;
+            left: 20px;
+            color: #8b5a2b;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* Decorative dividers */
+        .divider {
+            text-align: center;
+            margin: 40px 0;
+            color: #8b5a2b;
+            font-size: 28px;
+            opacity: 0.6;
+        }
+
+        /* Woodcut-style illustration frame */
+        .illustration {
+            text-align: center;
+            margin: 40px auto;
+            padding: 30px;
+            border: 3px double #8b5a2b;
+            background: rgba(232, 220, 192, 0.5);
+            max-width: 200px;
+        }
+
+        .illustration-content {
+            font-size: 80px;
+            filter: sepia(0.6) contrast(1.1);
+        }
+
+        .illustration-caption {
+            font-size: 12px;
+            font-style: italic;
+            color: #5a4332;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* Footer colophon */
+        .colophon {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid #8b5a2b;
+            text-align: center;
+            font-size: 14px;
+            font-style: italic;
+            color: #5a4332;
+        }
+
+        @media (max-width: 768px) {
+            .parchment {
+                padding: 40px 30px;
+            }
+            
+            .border-frame {
+                padding: 20px;
+            }
+            
+            .manuscript-title {
+                font-size: 42px;
+            }
+            
+            .drop-cap {
+                font-size: 100px;
+                line-height: 75px;
+            }
+
+            .margin-note {
+                position: static;
+                width: 100%;
+                text-align: left;
+                margin: 15px 0;
+                padding-left: 20px;
+                border-left: 2px solid #8b5a2b;
+            }
+
+            .floater {
+                font-size: 35px;
+            }
+        }
+    </style>
 </head>
 <body>
-hello world<br>
-here's an iframe of a site<br>
-<div>
-  <iframe src="https://norashevick.github.io/hi.html" height="400" width="400">
-  <p>something something something</p>
-  </iframe>
-</div>
-<br>
-we shall do it a different way.
-<div>
+    <div class="container">
+        <div class="parchment">
+            <div class="border-frame">
+                <span class="corner-tl">✤</span>
+                <span class="corner-tr">✤</span>
+                <span class="corner-bl">✤</span>
+                <span class="corner-br">✤</span>
 
-<div class="blue container" id="mainContainer" data-testid="CreateAccountStep.CustomButton.GuestCheckout">
-  <span class="choices" data-choice="unselected">
-    <ul id="choices" class="blue">
-      <li class="choice">First</li>
-      <li class="choice">Second</li>
-      <li class="choice">Third</li>
-    </ul>
-  </span>
-</div>
+                <!-- Title -->
+                <h1 class="manuscript-title">Nora Shevick</h1>
+                <p class="subtitle">~ Craftswoman of Digitus Modernus ~</p>
 
-  <iframe src="https://norashevick.github.io/test.html">
-    <!-- <html>
-      <head>
-        <script type="text/javascript">
-      window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
-      heap.load("472986767");
-      heap.addEventProperties({ 'Logged In TEST': 'true' });
-      </script>
+                <div class="illustration">
+                    <div class="illustration-content">🎭</div>
+                    <div class="illustration-caption">IMAGO PRIMA</div>
+                </div>
 
-      </head>
-      <body>
-       will not see this.
-      </body>
-    </html> -->
-</div>
+                <!-- Opening text -->
+                <div class="section">
+                    <p class="text-block">
+                        <span class="drop-cap">I</span>n this present chronicle, being a true & faithful account of mine works & accomplishments in the realm of the digital arts, I do set forth for thy consideration a catalogue of endeavours most worthy. Herein shall be found testament to skills both ancient in wisdom & modern in execution, wrought with care upon the loom of technology.
+                    </p>
+                </div>
 
+                <div class="divider">❦ ❦ ❦</div>
+
+                <!-- Projects section -->
+                <div class="section">
+                    <h2 class="section-header">
+                        <span class="ornament">✦</span>
+                        Notable Workes & Projectes
+                        <span class="ornament">✦</span>
+                    </h2>
+                    
+                    <ul class="manuscript-list">
+                        <li>First Magnificent Endeavour of Great Import & Consequence, being a work of extraordinary merit</li>
+                        <li>Second Venture Most Splendid & Worthy of Attention, crafted with utmost diligence</li>
+                        <li>Third Quest of Exceeding Brilliance & Innovation, executed with masterful precision</li>
+                    </ul>
+                </div>
+
+                <div class="divider">⚜ ⚜ ⚜</div>
+
+                <!-- Skills section -->
+                <div class="section">
+                    <h2 class="section-header">
+                        <span class="ornament">✧</span>
+                        Artes & Competencies
+                        <span class="ornament">✧</span>
+                    </h2>
+
+                    <p class="text-block">
+                        Through years of study & practice in both the ancient & modern disciplines, I have acquired mastery in sundry crafts. Mine expertise doth span the illumination of manuscripts digital, the conjuring of interactive experiences, & the architecture of systems most ingenious.
+                    </p>
+
+                    <ul class="manuscript-list">
+                        <li>Illumination & Beautification of Pages Web (Design of Visuales)</li>
+                        <li>Alchemical Transmutation of Code (Artes Programmatical)</li>
+                        <li>Construction of Experience for ye User (UX & UI)</li>
+                        <li>Scribing of Content & Communication (Wordsmith & Bardic Arts)</li>
+                    </ul>
+                </div>
+
+                <div class="divider">✤ ✤ ✤</div>
+
+                <!-- Contact section -->
+                <div class="section">
+                    <h2 class="section-header">
+                        <span class="ornament">❧</span>
+                        For Correspondence & Parley
+                        <span class="ornament">❧</span>
+                    </h2>
+
+                    <p class="text-block">
+                        Shouldst thou desire to engage in discourse, propose collaboration, or otherwise seek audience, I do most heartily invite thee to dispatch thy missive forthwith. Whether by raven, courier, or electronic mail, thy correspondence shall be received with great anticipation & answered with all due haste.
+                    </p>
+                </div>
+
+                <!-- Colophon -->
+                <div class="colophon">
+                    <p>⚘ Here endeth ye Chronicle ⚘</p>
+                    <p style="margin-top: 10px;">Scribed & Illuminated in the Year of Our Lord MMXXIV</p>
+                    <p style="margin-top: 10px; font-size: 12px;">
+                        May thy browsers render true & thy code compile without error
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+</html>

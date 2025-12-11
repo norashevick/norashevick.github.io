@@ -15,6 +15,23 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=IM+Fell+English:ital@0;1&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'initials';
+            src: url('assets/fonts/PetitFleur.woff2') format('woff2'),
+                 url('assets/fonts/PetitFleur.woff') format('woff'),
+                 url('assets/fonts/PetitFleur.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'fullparagraph';
+            src: url('assets/fonts/BouwsUnc.woff2') format('woff2'),
+                 url('assets/fonts/BouwsUnc.woff') format('woff'),
+                 url('assets/fonts/BouwsUnc.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -23,7 +40,7 @@
         }
 
         body {
-            font-family: 'IM Fell English', serif;
+            font-family: 'fullparagraph', serif;
             background: #1a1410;
             color: #2d2416;
             min-height: 100vh;
@@ -150,7 +167,7 @@
 
         /* Header styling */
         .manuscript-title {
-            font-family: 'UnifrakturMaguntia', cursive;
+            font-family: 'initials';
             font-size: 64px;
             text-align: center;
             color: #3d2817;

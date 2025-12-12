@@ -102,12 +102,31 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(to right, 
-                rgba(101, 67, 33, 0.3) 0%,
-                transparent 5%,
-                transparent 95%,
-                rgba(101, 67, 33, 0.3) 100%
-            );
+            background: 
+                /* Left edge - darker gradient */
+                linear-gradient(to right, 
+                    rgba(101, 67, 33, 0.4) 0%,
+                    rgba(101, 67, 33, 0.25) 2%,
+                    transparent 8%
+                ),
+                /* Right edge - darker gradient */
+                linear-gradient(to left, 
+                    rgba(101, 67, 33, 0.4) 0%,
+                    rgba(101, 67, 33, 0.25) 2%,
+                    transparent 8%
+                ),
+                /* Top edge */
+                linear-gradient(to bottom,
+                    rgba(101, 67, 33, 0.3) 0%,
+                    rgba(101, 67, 33, 0.15) 3%,
+                    transparent 10%
+                ),
+                /* Bottom edge */
+                linear-gradient(to top,
+                    rgba(101, 67, 33, 0.3) 0%,
+                    rgba(101, 67, 33, 0.15) 3%,
+                    transparent 10%
+                );
             pointer-events: none;
             z-index: -1;
         }

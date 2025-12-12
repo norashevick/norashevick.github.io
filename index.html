@@ -60,7 +60,31 @@
         /* Authentic parchment page */
         .parchment {
             background: 
-                linear-gradient(90deg, transparent 0%, rgba(101, 67, 33, 0.05) 50%, transparent 100%),
+                /* Darkened left edge */
+                linear-gradient(to right, 
+                    rgba(101, 67, 33, 0.4) 0%,
+                    rgba(101, 67, 33, 0.2) 3%,
+                    transparent 10%
+                ),
+                /* Darkened right edge */
+                linear-gradient(to left, 
+                    rgba(101, 67, 33, 0.4) 0%,
+                    rgba(101, 67, 33, 0.2) 3%,
+                    transparent 10%
+                ),
+                /* Darkened top edge */
+                linear-gradient(to bottom,
+                    rgba(101, 67, 33, 0.3) 0%,
+                    rgba(101, 67, 33, 0.15) 2%,
+                    transparent 8%
+                ),
+                /* Darkened bottom edge */
+                linear-gradient(to top,
+                    rgba(101, 67, 33, 0.3) 0%,
+                    rgba(101, 67, 33, 0.15) 2%,
+                    transparent 8%
+                ),
+                /* Your existing stains/texture */
                 radial-gradient(ellipse at 20% 30%, rgba(139, 90, 43, 0.15), transparent 40%),
                 radial-gradient(ellipse at 80% 70%, rgba(101, 67, 33, 0.1), transparent 40%),
                 radial-gradient(ellipse at 40% 80%, rgba(115, 85, 45, 0.08), transparent 35%),
@@ -103,29 +127,11 @@
             right: -2px;
             bottom: -2px;
             background: 
-                /* Left edge - darker gradient */
                 linear-gradient(to right, 
-                    rgba(101, 67, 33, 0.4) 0%,
-                    rgba(101, 67, 33, 0.25) 2%,
-                    transparent 8%
-                ),
-                /* Right edge - darker gradient */
-                linear-gradient(to left, 
-                    rgba(101, 67, 33, 0.4) 0%,
-                    rgba(101, 67, 33, 0.25) 2%,
-                    transparent 8%
-                ),
-                /* Top edge */
-                linear-gradient(to bottom,
-                    rgba(101, 67, 33, 0.3) 0%,
-                    rgba(101, 67, 33, 0.15) 3%,
-                    transparent 10%
-                ),
-                /* Bottom edge */
-                linear-gradient(to top,
-                    rgba(101, 67, 33, 0.3) 0%,
-                    rgba(101, 67, 33, 0.15) 3%,
-                    transparent 10%
+                rgba(101, 67, 33, 0.3) 0%,
+                transparent 5%,
+                transparent 95%,
+                rgba(101, 67, 33, 0.3) 100%
                 );
             pointer-events: none;
             z-index: -1;

@@ -330,7 +330,7 @@
         .divider {
             text-align: center;
             margin: 40px 0;
-            color: #8b5a2b;
+            color: #2F7441;
             font-size: 28px;
             opacity: 0.6;
         }
@@ -340,7 +340,7 @@
             text-align: center;
             margin: 40px auto;
             padding: 30px;
-            border: 3px double #8b5a2b;
+            border: 3px double #2F7441;
             background: rgba(232, 220, 192, 0.5);
             max-width: 500px;
         }
@@ -360,9 +360,23 @@
         .illustration-caption {
             font-size: 12px;
             font-style: italic;
-            color: #5a4332;
+            color: #CB4F34;
             margin-top: 10px;
             letter-spacing: 1px;
+        }
+
+        .illustration-float {
+            float: right;
+            max-width: 400px;
+            margin: 0 0 30px 30px;
+        }
+
+        @media (max-width: 768px) {
+            .illustration-float {
+                float: none;
+                margin: 20px auto;
+                max-width: 100%;
+            }
         }
 
         /* Footer colophon */
@@ -465,8 +479,13 @@
                     <div class="illustration-caption">IMAGO PRIMA</div>
                 </div>
 
-                <!-- Opening text -->
+                <!-- Opening text with image -->
                 <div class="section">
+                    <div class="illustration illustration-float">
+                        <img src="resources/IMG_9163.jpg" alt="Illustration" class="illustration-content" style="width: 100%; height: auto;">
+                        <div class="illustration-caption">IMAGO PRIMA</div>
+                    </div>
+                    
                     <p class="text-block">
                         <span class="drop-cap">H</span>ail fellow brethren, hear ye, my name is Nora, and I taketh joy in constructing thise words for nought but mine own amusement. I do dearly delight in spending mine hours without in the fresh air, and in the companionship of beasts, especially yonder canine varlets, and now, fair felines of whimsy. Yea, I am enamored of trifles, such as weaving, pastries of sweetness, sound baths of hallowed reverie, merrymaking with garish and fantastical attire, readings of The New Yorker's film accounts, and in questing to discern the mystic meaning of the modern aspect of yonder medieval fantasies. Methinks, I have learned that I find not pleasure in mountaineering of ice (see imago prima above), nor in loud and discordant music of heavy metal, nor in the crawling beasts of eight legs (but fear not, for I pray thee to conquer this here dread), nor in rushing down the snowy slopes with perilous black diamonds, nor in not knowing how to tend a sickly plant that doth wither and fade.
                     </p>

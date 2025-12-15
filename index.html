@@ -461,6 +461,19 @@
             border-bottom: 2px solid #8b2500;
         }
     </style>
+    <script>
+        posthog.onFeatureFlags(function() {
+            // feature flags should be available at this point
+            if (posthog.isFeatureEnabled('funkyColors') ) {
+                console.log("funky colors")
+            }
+        })
+
+        // Otherwise, you can just do:
+        if (posthog.isFeatureEnabled('funkyColors') ) {
+            console.log("not funky at all")
+        }
+    </script>
 </head>
 <body>
     <div class="container">

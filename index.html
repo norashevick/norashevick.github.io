@@ -453,16 +453,6 @@
             border-bottom: 2px solid #8b2500;
         }
     </style>
-    <script>
-        posthog.onFeatureFlags(function() {
-            if (posthog.isFeatureEnabled('funkyColors') ) {
-                console.log("funky colors");
-            }
-            else {
-                console.log("not funky at all");
-            }
-        })
-    </script>
 </head>
 <body>
     <div class="container">
